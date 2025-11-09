@@ -1,0 +1,10 @@
+﻿fileFormatVersion: 2
+guid: d15a0aea0c704a68babbce762efa5485
+timeCreated: 1712680326
+AssetOrigin:
+  serializedVersion: 1
+  productId: 295751
+  packageName: Fast Mesh Lite - 3D Asset Creation Tool
+  packageVersion: 1.0.2
+  assetPath: Assets/Plugins/FastMesh/Editor/Scripts/FastMesh_Data/M2/Ser_M2Segment.cs
+  uploadId: 690999

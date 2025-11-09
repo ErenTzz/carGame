@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 35d213215ede68c41927edbb98e8a4d4
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 295751
+  packageName: Fast Mesh Lite - 3D Asset Creation Tool
+  packageVersion: 1.0.2
+  assetPath: Assets/Plugins/FastMesh/Editor/Data/Example/Example Chair/Office Chair
+    - 3.asset
+  uploadId: 690999

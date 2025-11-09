@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 8cd1398b56ac3b34487d20d11b7bd988
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 295751
+  packageName: Fast Mesh Lite - 3D Asset Creation Tool
+  packageVersion: 1.0.2
+  assetPath: Assets/Plugins/FastMesh/Editor/Data/Example/Example Weapon/Weapon -
+    7.asset
+  uploadId: 690999

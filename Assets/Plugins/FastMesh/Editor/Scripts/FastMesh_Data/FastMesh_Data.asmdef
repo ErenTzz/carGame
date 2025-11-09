@@ -1,0 +1,18 @@
+{
+    "name": "FastMesh_Data",
+    "rootNamespace": "",
+    "references": [
+        "GUID:7b748630cff593e4baf6b2bdd405ccfa"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

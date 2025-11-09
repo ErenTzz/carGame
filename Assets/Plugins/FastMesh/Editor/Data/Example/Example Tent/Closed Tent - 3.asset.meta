@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 7f59371ac1df14f4aa6b8a37fbdcdfb0
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 295751
+  packageName: Fast Mesh Lite - 3D Asset Creation Tool
+  packageVersion: 1.0.2
+  assetPath: Assets/Plugins/FastMesh/Editor/Data/Example/Example Tent/Closed Tent
+    - 3.asset
+  uploadId: 690999

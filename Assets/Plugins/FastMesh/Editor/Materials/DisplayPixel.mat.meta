@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 54cda52c975cab44e8e1b930bb50bdf4
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 295751
+  packageName: Fast Mesh Lite - 3D Asset Creation Tool
+  packageVersion: 1.0.2
+  assetPath: Assets/Plugins/FastMesh/Editor/Materials/DisplayPixel.mat
+  uploadId: 690999

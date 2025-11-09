@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 246867164460d2b4a8c7f463b4676b1c
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 295751
+  packageName: Fast Mesh Lite - 3D Asset Creation Tool
+  packageVersion: 1.0.2
+  assetPath: Assets/Plugins/FastMesh/Editor/Data/Example/Example Park/Park - Fountain
+    1.asset
+  uploadId: 690999

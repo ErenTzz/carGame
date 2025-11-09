@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: e271b001f5175a74dbfbc6b851967fae
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 295751
+  packageName: Fast Mesh Lite - 3D Asset Creation Tool
+  packageVersion: 1.0.2
+  assetPath: Assets/Plugins/FastMesh/Editor/Data/Example/Example Park/Park - Fence
+    8.asset
+  uploadId: 690999

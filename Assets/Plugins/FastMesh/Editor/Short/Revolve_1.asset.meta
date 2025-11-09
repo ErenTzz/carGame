@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 3a63ca53cd1f9984b9ee4e2d050fc2cf
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 295751
+  packageName: Fast Mesh Lite - 3D Asset Creation Tool
+  packageVersion: 1.0.2
+  assetPath: Assets/Plugins/FastMesh/Editor/Short/Revolve_1.asset
+  uploadId: 690999

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: fad51a46c3372ca42944e6bba5ef9bd1
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 295751
+  packageName: Fast Mesh Lite - 3D Asset Creation Tool
+  packageVersion: 1.0.2
+  assetPath: Assets/Plugins/FastMesh/Editor/Prefabs/Revolve_Center.prefab
+  uploadId: 690999

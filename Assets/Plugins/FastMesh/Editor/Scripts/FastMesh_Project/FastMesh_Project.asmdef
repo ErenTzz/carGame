@@ -1,0 +1,19 @@
+{
+    "name": "FastMesh_Project",
+    "rootNamespace": "",
+    "references": [
+        "GUID:d824169f57d8a4e4fb3c9429e2e2793e",
+        "GUID:7b748630cff593e4baf6b2bdd405ccfa"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 1e870822fe2785f43ae838e9d14f26f8
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 295751
+  packageName: Fast Mesh Lite - 3D Asset Creation Tool
+  packageVersion: 1.0.2
+  assetPath: Assets/Plugins/FastMesh/Editor/Data/Example/Example Vegetable/Project1748_240819.asset
+  uploadId: 690999

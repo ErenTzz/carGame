@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d7894e15d9445c3a4ed0be3f4026bc1, type: 3}
+  m_Name: ConfigShort
+  m_EditorClassIdentifier: 
+  S2Dto3D_1: {fileID: 11400000, guid: 23757b0a14b0a5047a4f3e5c7465dc3d, type: 2}
+  S2Dto3D_2: {fileID: 11400000, guid: 1e80d1213b419f0489d12c046ecfe525, type: 2}
+  S2Dto3D_3: {fileID: 11400000, guid: 61a19847f97286e4f848df7281308adc, type: 2}
+  Bevel_1: {fileID: 11400000, guid: 08b8285be25c1ba4ab6ccafbe949f9a6, type: 2}
+  Bevel_2: {fileID: 11400000, guid: 7103ebabafe865f468405b9973b6d24a, type: 2}
+  Cutout_1: {fileID: 11400000, guid: 835f279253a7a594796f9dc970a82e4c, type: 2}
+  Cutout_2: {fileID: 11400000, guid: 99db3d0af3b9b034c9da0f54f2169b36, type: 2}
+  EraserTool_1: {fileID: 11400000, guid: e1614de5a9abb484d8f883d1ef46da08, type: 2}
+  Examle_1: {fileID: 11400000, guid: 92cdb13c74154cf4db3a8f576c276677, type: 2}
+  Revolve_1: {fileID: 11400000, guid: 3a63ca53cd1f9984b9ee4e2d050fc2cf, type: 2}
+  Split_1: {fileID: 11400000, guid: 99bf5b33f6485054db9f28bb57babccb, type: 2}
+  Texture_1: {fileID: 11400000, guid: e2d3564471b345e4fb93e6b9a75a7180, type: 2}
+  MoreLayers: {fileID: 11400000, guid: 19fa4e7b9f3695145901b160b7cd82df, type: 2}
+  FirstStep_1: {fileID: 11400000, guid: df11e78ebd41c9e44b978ac0715d2e39, type: 2}
+  FirstStep_2_bevel: {fileID: 11400000, guid: 11f0c5ed262f7f74c9adedbb2a125433, type: 2}

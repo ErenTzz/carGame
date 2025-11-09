@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e1614de5a9abb484d8f883d1ef46da08
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 295751
+  packageName: Fast Mesh Lite - 3D Asset Creation Tool
+  packageVersion: 1.0.2
+  assetPath: Assets/Plugins/FastMesh/Editor/Short/EraserTool_1.asset
+  uploadId: 690999

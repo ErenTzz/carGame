@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 1c1cd45bff562b24eb0b1e15d22a0bca
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 295751
+  packageName: Fast Mesh Lite - 3D Asset Creation Tool
+  packageVersion: 1.0.2
+  assetPath: Assets/Plugins/FastMesh/Editor/Data/Example/Example Road/Road Barrier
+    - 1.asset
+  uploadId: 690999

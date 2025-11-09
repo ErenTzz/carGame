@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 25905ca673312994c9342cb15ffa34d1
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 295751
+  packageName: Fast Mesh Lite - 3D Asset Creation Tool
+  packageVersion: 1.0.2
+  assetPath: Assets/Plugins/FastMesh/Editor/Prefabs/Materials/Icon_mY.mat
+  uploadId: 690999

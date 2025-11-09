@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: d1e78c9c88fb2174791aa1c8c395b645
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 295751
+  packageName: Fast Mesh Lite - 3D Asset Creation Tool
+  packageVersion: 1.0.2
+  assetPath: Assets/Plugins/FastMesh/Editor/Data/Example/Example Park/Park - Bench
+    6.asset
+  uploadId: 690999

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 08b8285be25c1ba4ab6ccafbe949f9a6
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 295751
+  packageName: Fast Mesh Lite - 3D Asset Creation Tool
+  packageVersion: 1.0.2
+  assetPath: Assets/Plugins/FastMesh/Editor/Short/Bevel_1.asset
+  uploadId: 690999

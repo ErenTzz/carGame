@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 8262af83b5113cb4cb5bdde8ba700363
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 295751
+  packageName: Fast Mesh Lite - 3D Asset Creation Tool
+  packageVersion: 1.0.2
+  assetPath: Assets/Plugins/FastMesh/Editor/Data/Example/Example Chair/Bar Stool
+    - 2.asset
+  uploadId: 690999

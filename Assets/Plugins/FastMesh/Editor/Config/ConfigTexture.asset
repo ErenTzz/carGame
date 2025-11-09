@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65f15a7f29654e90a3b7d4bf4cf76f44, type: 3}
+  m_Name: ConfigTexture
+  m_EditorClassIdentifier: FastMesh:FastMesh:ConfigTexture
+  styleSheet1: {fileID: 7433441132597879392, guid: 552caf2f7179db04497d713f75514c5e, type: 3}
+  toonPenCircle: {fileID: 2800000, guid: dd27d63c7c0324d4b8052cfc21ca247b, type: 3}
+  toonPenSquare: {fileID: 2800000, guid: a4d61d97bb86b444faa1598a1804120b, type: 3}
+  toonPenTriangle: {fileID: 2800000, guid: 6bd72af9cf674e84188310a241f730ae, type: 3}
+  toonPenRomb: {fileID: 2800000, guid: a1bdcbaf78f99c24a86c02a669c1b5c8, type: 3}
+  toonPenPentangle: {fileID: 2800000, guid: dbdc7a585e66a6a45b1632eda92a63fa, type: 3}
+  toonPenHexagon1: {fileID: 2800000, guid: 1f516da773d81a745ba45ec680b80109, type: 3}
+  toonPenHexagon2: {fileID: 2800000, guid: 7bd1d680dad8581468dbc2060a771050, type: 3}
+  toonPenLine: {fileID: 2800000, guid: ce5f73c1e9b91e849a1a3f9f5aac652b, type: 3}
+  toonSliceLine: {fileID: 2800000, guid: 32f9c68cbf090874c984856850169020, type: 3}
+  toonLasoSquare: {fileID: 2800000, guid: c9e8ea45505ebe5448f38472f812c98b, type: 3}
+  toonLasoCircle: {fileID: 2800000, guid: 865e2ae445752cf43a80d611dbc67d4a, type: 3}
+  toonLasoLine: {fileID: 2800000, guid: 5431014373037524190eb3a1363be74b, type: 3}
+  toonLasoJust: {fileID: 2800000, guid: f656f404afae12f4f839da71445afd4f, type: 3}
+  toonFigure3dSphere: {fileID: 2800000, guid: 319beed0e6f02c049994e00287aceece, type: 3}
+  toonFigure3dCube: {fileID: 2800000, guid: a3c53764b7658b345bf7bbaefff64108, type: 3}
+  toonFigure3dCapsule: {fileID: 2800000, guid: a31b8d18776335b469aa187a18a8b241, type: 3}
+  toonFigure3dCylinder: {fileID: 2800000, guid: 43337b3cd239f864b8194232864c7fd5, type: 3}
+  displayX: {fileID: 2800000, guid: 0868e384a96df794e8a240c9abad2db1, type: 3}
+  displayY: {fileID: 2800000, guid: 538b41756f456e244affb280a153d550, type: 3}
+  displayZ: {fileID: 2800000, guid: 36a4b05b349925f40b40f0fef0d2e073, type: 3}
+  displayTransform: {fileID: 2800000, guid: 99e2265032445c74c80d8b79fa549d25, type: 3}
+  displaySplit: {fileID: 2800000, guid: a2bcd13354c9af84fa93458215589e46, type: 3}
+  AxisIcon_X: {fileID: 2800000, guid: 54470ae1106ae0f4b9db7bd1ad65c51e, type: 3}
+  AxisIcon_mX: {fileID: 2800000, guid: 034aaecbbc2014e4d935cff333b2b6d7, type: 3}
+  AxisIcon_Y: {fileID: 2800000, guid: 72add50f86f42904f91b6176474836d5, type: 3}
+  AxisIcon_mY: {fileID: 2800000, guid: 3acea582f9fcecf4abc629d24233aca4, type: 3}
+  AxisIcon_Z: {fileID: 2800000, guid: 02e8a33a310f81f4aa225a919750b4af, type: 3}
+  AxisIcon_mZ: {fileID: 2800000, guid: 92d543b4dd2ce0f4faca69941be63f93, type: 3}
+  TransMove: {fileID: 2800000, guid: ba5ced5bfe78b0249a93649941a0d5eb, type: 3}
+  TransRot: {fileID: 2800000, guid: ef84edb8c43c23849aa0c078ec9fd889, type: 3}
+  TransScale: {fileID: 2800000, guid: 24ec6f50c522dd542a559448ace07293, type: 3}
+  TransRect: {fileID: 2800000, guid: dc05930ecab689947ad726323d7a769e, type: 3}
+  mouseL: {fileID: 2800000, guid: f1b1c0924e7239a4c847c2a09e19b381, type: 3}
+  mouseR: {fileID: 2800000, guid: 2e755c41ca1565a49b2b4235722ec3e9, type: 3}
+  mouseC: {fileID: 2800000, guid: cc1cf58077dbe2842b789902a856e13e, type: 3}
+  MouseShift: {fileID: 2800000, guid: 3706c63963c897045b1c5496c7d57e51, type: 3}
+  MouseAlt: {fileID: 2800000, guid: e358e0328be1c724cac4b495e2e1c0d3, type: 3}
+  iconMenu1: {fileID: 2800000, guid: 2d2156376aa55b649b546e175b1cebc3, type: 3}
+  iconMenu2: {fileID: 2800000, guid: 8a0e8ff181f06ad4899d01ef549cdfc1, type: 3}
+  iconMenu3: {fileID: 2800000, guid: 77b20607efd9a084596f702f5eb058e9, type: 3}
+  iconCircl: {fileID: 2800000, guid: 4046ae0620357844999871011e8b0dc3, type: 3}
+  iconFastMesh: {fileID: 2800000, guid: 5ad212016e42b694fb70782cafbd2cdf, type: 3}
+  iconSetting: {fileID: 2800000, guid: 1a1a369b60a305d43be0ac09b048d725, type: 3}
+  iconPlus: {fileID: 2800000, guid: 118f91f92e26c6a45a1471bfc861b6c2, type: 3}
+  iconGuide: {fileID: 2800000, guid: e451eb9fd0382eb4385f22520c3451d9, type: 3}
+  iconMesh: {fileID: 2800000, guid: 4c98ea8879acce042b13b1b3b3c5bc01, type: 3}
+  iconCross: {fileID: 2800000, guid: ec308864f078708458402f44448bc104, type: 3}
+  imgShape: {fileID: 2800000, guid: 01860a179c27a8442b369f22825fe1ed, type: 3}
+  imgTowSide: {fileID: 2800000, guid: 68c0460f5ac5f7546bea70c10a127b6b, type: 3}
+  imgNotFoto: {fileID: 2800000, guid: 2f4816905222cee4084d3e8b33a0caeb, type: 3}
+  imgDirectory: {fileID: 2800000, guid: cfdc9fdf8aea33843aad2a60b8866107, type: 3}
+  imgBack: {fileID: 2800000, guid: 370cbeb3930be3143bfd0eea7d9dcd5d, type: 3}
+  iconInfo: {fileID: 2800000, guid: ab932705da1d4454f93351cc5445210a, type: 3}

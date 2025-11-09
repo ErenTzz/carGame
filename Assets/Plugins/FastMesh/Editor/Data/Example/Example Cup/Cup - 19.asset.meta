@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 78e6e020b1163f942a1ecc13bfb3cb32
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 295751
+  packageName: Fast Mesh Lite - 3D Asset Creation Tool
+  packageVersion: 1.0.2
+  assetPath: Assets/Plugins/FastMesh/Editor/Data/Example/Example Cup/Cup - 19.asset
+  uploadId: 690999

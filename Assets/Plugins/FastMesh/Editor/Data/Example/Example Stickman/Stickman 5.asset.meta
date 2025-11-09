@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: ab5581de8ec0bcb479e11099a06b8c01
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 295751
+  packageName: Fast Mesh Lite - 3D Asset Creation Tool
+  packageVersion: 1.0.2
+  assetPath: Assets/Plugins/FastMesh/Editor/Data/Example/Example Stickman/Stickman
+    5.asset
+  uploadId: 690999

@@ -1,0 +1,10 @@
+﻿fileFormatVersion: 2
+guid: 3c911ebf040d4c30a6f9e7c0304aa7b7
+timeCreated: 1716014939
+AssetOrigin:
+  serializedVersion: 1
+  productId: 295751
+  packageName: Fast Mesh Lite - 3D Asset Creation Tool
+  packageVersion: 1.0.2
+  assetPath: Assets/Plugins/FastMesh/Editor/Scripts/FastMesh_Project/ProjectClass.cs
+  uploadId: 690999

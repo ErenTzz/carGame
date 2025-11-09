@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: de0748664d82aba4f8d352dabe750954
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 295751
+  packageName: Fast Mesh Lite - 3D Asset Creation Tool
+  packageVersion: 1.0.2
+  assetPath: Assets/Plugins/FastMesh/Editor/Data/Example/Example Park/Park - Lamp
+    9.asset
+  uploadId: 690999

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 99db3d0af3b9b034c9da0f54f2169b36
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 295751
+  packageName: Fast Mesh Lite - 3D Asset Creation Tool
+  packageVersion: 1.0.2
+  assetPath: Assets/Plugins/FastMesh/Editor/Short/Cutout_2.asset
+  uploadId: 690999

@@ -1,0 +1,10 @@
+﻿fileFormatVersion: 2
+guid: 761124cfe32c596419b1d671ea578794
+timeCreated: 1705247534
+AssetOrigin:
+  serializedVersion: 1
+  productId: 295751
+  packageName: Fast Mesh Lite - 3D Asset Creation Tool
+  packageVersion: 1.0.2
+  assetPath: Assets/Plugins/FastMesh/Editor/Scripts/FastMesh_Project/LayerData_Setka.cs
+  uploadId: 690999

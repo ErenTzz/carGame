@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 2762b592edcb40a4a8fe689292cd8a87
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 295751
+  packageName: Fast Mesh Lite - 3D Asset Creation Tool
+  packageVersion: 1.0.2
+  assetPath: Assets/Plugins/FastMesh/Editor/Prefabs/Revolve_TopBottom.prefab
+  uploadId: 690999

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: bf928c2d345de1745a0a1d8eefeab323
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 295751
+  packageName: Fast Mesh Lite - 3D Asset Creation Tool
+  packageVersion: 1.0.2
+  assetPath: Assets/Plugins/FastMesh/Editor/Prefabs/Grid_mirrorY.prefab
+  uploadId: 690999

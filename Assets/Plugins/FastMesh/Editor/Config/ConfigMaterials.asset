@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 186dbaee5900435b8d9ff3832aff308d, type: 3}
+  m_Name: ConfigMaterials
+  m_EditorClassIdentifier: 
+  material_view_pixel: {fileID: 2100000, guid: dacfa76175c50cc49a0fce169af706a9, type: 2}
+  material_view_pixelMirror: {fileID: 2100000, guid: 2e45ddda82c051a4198ddc1b1a993154, type: 2}
+  material_view_vremjnka: {fileID: 2100000, guid: 6fd7367f638e75d43ae5911c0429c1ea, type: 2}
+  material_view_fade: {fileID: 2100000, guid: dacfa76175c50cc49a0fce169af706a9, type: 2}
+  material_view_bevel: {fileID: 2100000, guid: b965549434808b24da768b1184101415, type: 2}
+  material_RED: {fileID: 2100000, guid: 5fda55ea6ddbaff47943d3930016cd0b, type: 2}
+  material_Display_pixel: {fileID: 2100000, guid: 54cda52c975cab44e8e1b930bb50bdf4, type: 2}
+  material_Display_bevel: {fileID: 2100000, guid: dbd85b0556ccdba478423ebce705af1b, type: 2}
+  material_Display_pixelMirror: {fileID: 2100000, guid: 658a21dfe3c9e1d4d9afdfff9d3122b8, type: 2}
+  material_Display_vremjnka: {fileID: 2100000, guid: cb4ae4440d8f455488d461c1be879ee5, type: 2}
+  material_Display_fade: {fileID: 2100000, guid: 9a1b9d9f1647c5e4089dd25e2d6da6cd, type: 2}
+  material_Display_cutout: {fileID: 2100000, guid: 4d244dce612667e4c8e1a1edb88b387b, type: 2}
+  material_Display_cutoutMirror: {fileID: 2100000, guid: 265076bedfa8bc848bbdb862cdbbb8b2, type: 2}
+  material_Display_cutoutFade: {fileID: 2100000, guid: da8cb44490607a2418c508827bddd052, type: 2}
+  Trans_MaterialZ: {fileID: 2100000, guid: 1e026a8e854da13408408b4a2b13d179, type: 2}
+  Trans_MaterialX: {fileID: 2100000, guid: 85f926c75401691498f5e5aa504f8a03, type: 2}
+  Trans_MaterialY: {fileID: 2100000, guid: f846e0f5d7762ac4a933e5df14763825, type: 2}
+  Trans_MaterialNOT: {fileID: 2100000, guid: d8d3839a53352af408827a1eae71a7ac, type: 2}
+  Trans_MaterialBlue: {fileID: 2100000, guid: 0701c1530df687b4cb3c4c91e4934237, type: 2}
+  Trans_MaterialGray: {fileID: 2100000, guid: cc789a05d4cd9594c9327cd7a92e7ea6, type: 2}
+  Modeler_Pixel: {fileID: 2100000, guid: c35be74e8e646a54fa384f286617de8b, type: 2}
+  Modeler_Fade: {fileID: 2100000, guid: 6f76661ff590b5a428bdc386b537920a, type: 2}

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: d824169f57d8a4e4fb3c9429e2e2793e
+AssemblyDefinitionImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 295751
+  packageName: Fast Mesh Lite - 3D Asset Creation Tool
+  packageVersion: 1.0.2
+  assetPath: Assets/Plugins/FastMesh/Editor/Scripts/FastMesh_Data/FastMesh_Data.asmdef
+  uploadId: 690999
