@@ -15,28 +15,29 @@ public class CollectibleManager : MonoBehaviour
         [Header("UI Elemanlarý")]
         public TMP_Text amountText; // "x / hedef" yazýsý
         public Image icon; // obje ikonu
+
+        [Header("Ses Efektleri")]
+        public AudioClip completionSfx; // Her tür için farklý tamamlanma sesi (opsiyonel)
+        [HideInInspector] public bool completed; //  Bir kere çalmasý için
     }
 
     public CollectibleType[] collectibles;
-    public TMP_Text totalText; // "Toplam: x / y" gibi göstermek için
-    public DynamicProgressBarDOTween mainProgressBar;
-
-
+    public TMP_Text totalText;
+    public DynamicProgressBarDOTweenSlider mainProgressBar;
 
     public event Action OnAllCollected;
 
-    private int TotalTarget => collectibles.Length * collectibles[0].targetAmount;
-    private int TotalCurrent
+    private int totalCollectedCount = 0;
+    private AudioSource audioSource;
+
+    private void Awake()
     {
-        get
-        {
-            int total = 0;
-            foreach (var c in collectibles)
-                total += c.currentAmount;
-            return total;
-        }
+        // Tek bir AudioSource tüm sesleri çalabilir
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+            audioSource = gameObject.AddComponent<AudioSource>();
     }
-    
+
     private void Start()
     {
         UpdateAllUI();
@@ -46,26 +47,31 @@ public class CollectibleManager : MonoBehaviour
     {
         foreach (var c in collectibles)
         {
-            
             if (c.typeName == collectibleName)
             {
-                // Toplama miktarýný artýr
                 c.currentAmount++;
-                if (c.currentAmount > c.targetAmount)
-                    c.currentAmount = c.targetAmount;
-
-                // Ýlgili paneldeki miktar metnini güncelle
                 if (c.amountText != null)
                     c.amountText.text = $"{c.currentAmount} / {c.targetAmount}";
 
-                // Genel toplam metnini güncelle
+                //  Toplam sayaç artýr
+                totalCollectedCount++;
                 UpdateTotalText();
 
-                // Ana progress bar'ý güncelle (varsa)
+                //  Eðer bu collectible hedefe ulaþtýysa ve daha önce tamamlanmadýysa
+                if (!c.completed && c.currentAmount >= c.targetAmount)
+                {
+                    c.completed = true;
+
+                    // Sesi çal
+                    if (c.completionSfx != null && audioSource != null)
+                        audioSource.PlayOneShot(c.completionSfx);
+                }
+
+                // Ana progress bar'ý güncelle
                 if (mainProgressBar != null)
                     mainProgressBar.SetProgress(GetTotalCollected());
 
-                // Eðer tüm objeler hedefe ulaþtýysa olayý tetikle
+                // Tüm hedefler tamamlandýysa olayý tetikle
                 if (AllGoalsReached())
                     OnAllCollected?.Invoke();
 
@@ -73,7 +79,6 @@ public class CollectibleManager : MonoBehaviour
             }
         }
     }
-
 
     private void UpdateUI(CollectibleType c)
     {
@@ -91,7 +96,7 @@ public class CollectibleManager : MonoBehaviour
     private void UpdateTotalText()
     {
         if (totalText != null)
-            totalText.text = $"Toplam: {TotalCurrent} / {TotalTarget}";
+            totalText.text = $"Toplam: {totalCollectedCount}";
     }
 
     private bool AllGoalsReached()
@@ -111,5 +116,5 @@ public class CollectibleManager : MonoBehaviour
         return success;
     }
 
-    public int GetTotalCollected() => TotalCurrent;
+    public int GetTotalCollected() => totalCollectedCount;
 }

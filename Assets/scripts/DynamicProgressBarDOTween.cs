@@ -1,69 +1,70 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 
-[RequireComponent(typeof(RectTransform))]
-[AddComponentMenu("UI/Dynamic Progress Bar (DOTween)")]
-public class DynamicProgressBarDOTween : MonoBehaviour
+[AddComponentMenu("UI/Dynamic Progress Bar (DOTween - Slider)")]
+public class DynamicProgressBarDOTweenSlider : MonoBehaviour
 {
-    [Header(" UI Elemanlarý")]
-    public Image fillImage;          // Dolu kýsým (Image Type = Filled olmalý)
-    public Image backgroundImage;    // Opsiyonel
+    [Header("UI ElemanlarÄ±")]
+    public Slider progressSlider;
+    public Image fillImage;
+    public RectTransform fillRect;
+    public Image backgroundImage;
 
-    [Header(" Ayarlar")]
-    [Tooltip("Progress barýn maksimum deðeri (örneðin 30 = 30 obje toplamak)")]
+    [Header("Konfeti Efekti")]
+    public GameObject confettiPrefab;
+    public Camera mainCamera;
+    public float confettiDistanceFromCamera = 5f;
+
+    [Header("Ses Efektleri")]
+    public AudioClip milestone25Sound;
+    public AudioClip milestone50Sound;
+    public AudioClip milestone75Sound;
+    public AudioClip completionSound;
+
+    private AudioSource audioSource;
+
+    [Header("Ayarlar")]
     public float maxValue = 100f;
-    [Tooltip("Progress dolum animasyon süresi (saniye)")]
     public float fillDuration = 0.5f;
-    [Tooltip("Animasyon eðrisi (Ease tipi)")]
     public Ease fillEase = Ease.OutCubic;
 
-    [Header(" Renkler")]
+    [Header("Renkler")]
     public Color startColor = Color.red;
     public Color midColor = new Color(1f, 0.8f, 0.1f);
     public Color endColor = Color.green;
 
-    [Header(" Efektler")]
-    [Tooltip("Dolum sýrasýnda küçük sýçrama efekti")]
-    public float popScale = 1.1f;
-    public float popDuration = 0.25f;
-    public Ease popEase = Ease.OutBack;
-
-    [Tooltip("Dolum sýrasýnda hafif sarsma efekti")]
-    public float shakeStrength = 8f;
-    public float shakeDuration = 0.2f;
-    public int shakeVibrato = 10;
-
-    [Header(" Tamamlanma Efektleri")]
-    public ParticleSystem completionParticles;
-    public AudioClip completionSfx;
-    public float completionScale = 1.25f;
-    public float completionAnimDuration = 0.6f;
-
     private float currentValue = 0f;
-    private RectTransform rectTransform;
-    private AudioSource audioSource;
 
-    private Tween fillTween;
-    private Tween popTween;
-
-    public ParticleSystem completionConfetti; // Progress bar dolunca fýþkýracak konfeti
-
+    // Milestone kontrolÃ¼
+    private bool milestone25Triggered = false;
+    private bool milestone50Triggered = false;
+    private bool milestone75Triggered = false;
+    private bool completionTriggered = false;
 
     private void Awake()
     {
-        rectTransform = GetComponent<RectTransform>();
-        audioSource = GetComponent<AudioSource>();
-        if (audioSource == null) audioSource = gameObject.AddComponent<AudioSource>();
+        if (progressSlider != null)
+        {
+            progressSlider.minValue = 0f;
+            progressSlider.maxValue = maxValue;
+            progressSlider.value = 0f;
+        }
 
         if (fillImage != null)
-        {
-            fillImage.fillAmount = 0f;
             fillImage.color = startColor;
-        }
+
+        if (backgroundImage != null)
+            backgroundImage.color = new Color(startColor.r * 0.5f, startColor.g * 0.5f, startColor.b * 0.5f);
+
+        if (mainCamera == null)
+            mainCamera = Camera.main;
+
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+            audioSource = gameObject.AddComponent<AudioSource>();
     }
 
-    //  Renk geçiþini hesapla
     private Color EvaluateColor(float t)
     {
         if (t <= 0.5f)
@@ -72,90 +73,116 @@ public class DynamicProgressBarDOTween : MonoBehaviour
             return Color.Lerp(midColor, endColor, (t - 0.5f) / 0.5f);
     }
 
-    //  Hedef deðeri ayarla
     public void SetProgress(float value)
     {
-        float targetValue = Mathf.Clamp(value, 0f, maxValue);
-        AnimateProgress(targetValue);
+        AnimateProgress(value);
     }
 
-    //  Belirli miktar ekle
     public void AddProgress(float amount)
     {
         SetProgress(currentValue + amount);
     }
 
-    //  DOTween animasyonu ile dolum
-    private void AnimateProgress(float targetValue)
+    public void AnimateProgress(float newValue)
     {
-        // Eðer ayný deðerse animasyon yapma
-        if (Mathf.Approximately(targetValue, currentValue))
+        if (progressSlider == null || fillRect == null)
             return;
 
-        // Önceki animasyonlarý temizle
-        fillTween?.Kill();
-        popTween?.Kill();
+        float targetValue = Mathf.Clamp(newValue, 0f, maxValue);
+        float startPercent = currentValue / maxValue;
+        float endPercent = targetValue / maxValue;
 
-        float startPercent = Mathf.Clamp01(currentValue / maxValue);
-        float endPercent = Mathf.Clamp01(targetValue / maxValue);
-
-        // Dolum animasyonu
-        fillTween = DOTween.To(() => startPercent, x =>
+        // Animasyon (yalnÄ±zca dolum)
+        DOTween.To(() => startPercent, x =>
         {
+            progressSlider.value = x * maxValue;
+
             if (fillImage != null)
+                fillImage.color = Color.Lerp(fillImage.color, EvaluateColor(x), 0.3f);
+
+            if (backgroundImage != null)
             {
-                fillImage.fillAmount = x;
-                fillImage.color = EvaluateColor(x);
+                Color bgColor = EvaluateColor(x) * 0.5f;
+                backgroundImage.color = Color.Lerp(backgroundImage.color, bgColor, 0.3f);
             }
+
+            CheckMilestones(x * maxValue);
+
         }, endPercent, fillDuration)
         .SetEase(fillEase)
         .OnComplete(() =>
         {
             currentValue = targetValue;
+            CheckMilestones(currentValue);
 
-            if (Mathf.Approximately(currentValue, maxValue))
-                PlayCompletionEffect();
-        });
-
-        // Pop efekti (küçük zýplama)
-        popTween = rectTransform.DOPunchScale(Vector3.one * (popScale - 1f), popDuration, 1, 0.5f)
-            .SetEase(popEase);
-
-        // Shake efekti (hafif sarsma)
-        rectTransform.DOShakeAnchorPos(shakeDuration, shakeStrength, shakeVibrato, 90f, false);
-
-        currentValue = targetValue;
-    }
-
-    // Tamamlandýðýnda yapýlan efektler
-    private void PlayCompletionEffect()
-    {
-        DOTween.Kill(rectTransform);
-
-        rectTransform.DOScale(completionScale, completionAnimDuration)
-            .SetEase(Ease.OutBack)
-            .OnComplete(() =>
+            // Dolum tamamlandÄ±ysa konfeti + ses efekti
+            if (Mathf.Approximately(currentValue, maxValue) && !completionTriggered)
             {
-                rectTransform.DOScale(1f, 0.3f).SetEase(Ease.InBack);
-            });
+                completionTriggered = true;
+                PlayConfetti();
+                PlaySound(completionSound);
 
-        if (completionParticles != null)
-            completionParticles.Play();
-
-        if (completionSfx != null)
-            audioSource.PlayOneShot(completionSfx);
+                if (fillImage != null)
+                    fillImage.DOFade(1f, 0.2f).SetLoops(2, LoopType.Yoyo);
+            }
+        });
     }
 
-    //  Ýstenirse anýnda set et (örnek: sahne baþlangýcýnda)
+    private void CheckMilestones(float currentVal)
+    {
+        float progressPercent = (currentVal / maxValue) * 100f;
+
+        if (progressPercent >= 25f && !milestone25Triggered)
+        {
+            milestone25Triggered = true;
+            PlaySound(milestone25Sound);
+        }
+        else if (progressPercent >= 50f && !milestone50Triggered)
+        {
+            milestone50Triggered = true;
+            PlaySound(milestone50Sound);
+        }
+        else if (progressPercent >= 75f && !milestone75Triggered)
+        {
+            milestone75Triggered = true;
+            PlaySound(milestone75Sound);
+        }
+    }
+
+    private void PlayConfetti()
+    {
+        if (confettiPrefab == null || mainCamera == null || fillRect == null)
+            return;
+
+        Vector3 screenPos = RectTransformUtility.WorldToScreenPoint(null, fillRect.position);
+        Ray ray = mainCamera.ScreenPointToRay(screenPos);
+        Vector3 spawnPos = ray.GetPoint(confettiDistanceFromCamera);
+
+        GameObject confetti = Instantiate(confettiPrefab, spawnPos, Quaternion.identity);
+        confetti.transform.LookAt(mainCamera.transform);
+
+        var ps = confetti.GetComponent<ParticleSystem>();
+        if (ps != null) ps.Play();
+
+        Destroy(confetti, 3f);
+    }
+
+    private void PlaySound(AudioClip clip)
+    {
+        if (clip == null || audioSource == null)
+            return;
+
+        audioSource.PlayOneShot(clip);
+    }
+
     public void ForceSetInstant(float value)
     {
         currentValue = Mathf.Clamp(value, 0f, maxValue);
-        float fillAmount = Mathf.Clamp01(currentValue / maxValue);
-
+        progressSlider.value = currentValue;
+        float t = currentValue / maxValue;
         if (fillImage != null)
-        {
-            fillImage.fillAmount = fillAmount;
-            fillImage.color = EvaluateColor(fillAmount);
-        }
+            fillImage.color = EvaluateColor(t);
+        if (backgroundImage != null)
+            backgroundImage.color = EvaluateColor(t) * 0.5f;
     }
 }

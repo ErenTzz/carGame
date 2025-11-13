@@ -53,7 +53,7 @@ public class CarController : MonoBehaviour
     // UI Butonuyla kontrol edilecek
     private bool isBrakeButtonPressed = false;
 
-    // UI tarafýndan çaðrýlacak fonksiyonlar
+    // UI tarafÄ±ndan Ã§aÄŸrÄ±lacak fonksiyonlar
     public void OnBrakeButtonDown()
     {
         isBrakeButtonPressed = true;
@@ -68,7 +68,7 @@ public class CarController : MonoBehaviour
     {
         isReversing = state;
 
-        // Butona basýldýðýnda ýþýklar da anýnda güncellensin
+        // Butona basÄ±ldÄ±ÄŸÄ±nda Ä±ÅŸÄ±klar da anÄ±nda gÃ¼ncellensin
         carLights.isBackLightOn = state;
         carLights.OperateBackLights();
     }
@@ -173,18 +173,18 @@ public class CarController : MonoBehaviour
     {
         bool isBraking = false;
 
-        // --- KLAVYE kontrolü ---
+        // --- KLAVYE kontrolÃ¼ ---
         if (control == ControlMode.Keyboard)
         {
             isBraking = Input.GetKey(KeyCode.Space);
         }
-        // --- BUTTONS kontrolü ---
+        // --- BUTTONS kontrolÃ¼ ---
         else if (control == ControlMode.Buttons)
         {
-            isBraking = isBrakeButtonPressed; // UI tarafýndan ayarlanan deðiþken
+            isBraking = isBrakeButtonPressed; // UI tarafÄ±ndan ayarlanan deÄŸiÅŸken
         }
 
-        isBraking = Input.GetKey(KeyCode.Space) || isReversing; // Reverse butonuna basýldýðýnda da true olacak
+        isBraking = Input.GetKey(KeyCode.Space) || isReversing; // Reverse butonuna basÄ±ldÄ±ÄŸÄ±nda da true olacak
 
         if (isBraking)
         {
@@ -248,11 +248,11 @@ public class CarController : MonoBehaviour
     //        if (isGrounded)
     //        {
 
-    //            // Yanal ve ileri kayma miktarýný kontrol et
+    //            // Yanal ve ileri kayma miktarÄ±nÄ± kontrol et
     //            float slipAmount = Mathf.Abs(hit.forwardSlip) + Mathf.Abs(hit.sidewaysSlip);
 
-    //            // Eðer slip belirli eþiði geçerse drift izi çýkar
-    //            if (slipAmount > 0.6f) // bu eþiði ayarlayabilirsin (0.2 - 0.6 arasý genelde iyi)
+    //            // EÄŸer slip belirli eÅŸiÄŸi geÃ§erse drift izi Ã§Ä±kar
+    //            if (slipAmount > 0.6f) // bu eÅŸiÄŸi ayarlayabilirsin (0.2 - 0.6 arasÄ± genelde iyi)
     //            {
     //                wheel.wheelEffectObj.GetComponentInChildren<TrailRenderer>().emitting = true;
     //                wheel.smokeParticle.Emit(1);
@@ -264,7 +264,7 @@ public class CarController : MonoBehaviour
     //        }
     //        else
     //        {
-    //            // Havadaysa iz çýkarma
+    //            // Havadaysa iz Ã§Ä±karma
     //            wheel.wheelEffectObj.GetComponentInChildren<TrailRenderer>().emitting = false;
     //        }
     //    }
@@ -286,16 +286,16 @@ public class CarController : MonoBehaviour
             float slipAmount = 0f;
             if (hasHit)
             {
-                // ileri (gaz) ve yan (drift) kaymalarý topla
+                // ileri (gaz) ve yan (drift) kaymalarÄ± topla
                 slipAmount = Mathf.Abs(hit.forwardSlip) + Mathf.Abs(hit.sidewaysSlip);
             }
 
-            // Þart: eðer fren yapýyorsak VEYA çekiþ kaybý yaþanýyorsa
+            // Åžart: eÄŸer fren yapÄ±yorsak VEYA Ã§ekiÅŸ kaybÄ± yaÅŸanÄ±yorsa
             bool shouldEmit = false;
 
             if (isGrounded && isRear)
             {
-                // Fren yapýyorsa veya kayma eþiði aþýlmýþsa
+                // Fren yapÄ±yorsa veya kayma eÅŸiÄŸi aÅŸÄ±lmÄ±ÅŸsa
                 if ((isBraking && isMovingFast) || slipAmount > 0.4f)
                 {
                     shouldEmit = true;
