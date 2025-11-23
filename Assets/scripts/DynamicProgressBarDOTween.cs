@@ -9,7 +9,7 @@ public class DynamicProgressBarDOTweenSlider : MonoBehaviour
     public Slider progressSlider;
     public Image fillImage;
     public RectTransform fillRect;
-    public Image backgroundImage;
+    public Image backgroundImage; // Referans kalabilir ama rengini kodla değiştirmiyoruz.
 
     [Header("Konfeti Efekti")]
     public GameObject confettiPrefab;
@@ -29,7 +29,7 @@ public class DynamicProgressBarDOTweenSlider : MonoBehaviour
     public float fillDuration = 0.5f;
     public Ease fillEase = Ease.OutCubic;
 
-    [Header("Renkler")]
+    [Header("Renkler (Sadece Fill İçin)")]
     public Color startColor = Color.red;
     public Color midColor = new Color(1f, 0.8f, 0.1f);
     public Color endColor = Color.green;
@@ -54,8 +54,9 @@ public class DynamicProgressBarDOTweenSlider : MonoBehaviour
         if (fillImage != null)
             fillImage.color = startColor;
 
-        if (backgroundImage != null)
-            backgroundImage.color = new Color(startColor.r * 0.5f, startColor.g * 0.5f, startColor.b * 0.5f);
+        // İPTAL EDİLDİ: Arka plan rengini başlangıçta değiştirme kodu kaldırıldı.
+        // if (backgroundImage != null)
+        //    backgroundImage.color = new Color(startColor.r * 0.5f, startColor.g * 0.5f, startColor.b * 0.5f);
 
         if (mainCamera == null)
             mainCamera = Camera.main;
@@ -100,11 +101,14 @@ public class DynamicProgressBarDOTweenSlider : MonoBehaviour
             if (fillImage != null)
                 fillImage.color = Color.Lerp(fillImage.color, EvaluateColor(x), 0.3f);
 
+            // İPTAL EDİLDİ: Animasyon sırasında arka plan rengini değiştirme kodu kaldırıldı.
+            /*
             if (backgroundImage != null)
             {
                 Color bgColor = EvaluateColor(x) * 0.5f;
                 backgroundImage.color = Color.Lerp(backgroundImage.color, bgColor, 0.3f);
             }
+            */
 
             CheckMilestones(x * maxValue);
 
@@ -182,7 +186,9 @@ public class DynamicProgressBarDOTweenSlider : MonoBehaviour
         float t = currentValue / maxValue;
         if (fillImage != null)
             fillImage.color = EvaluateColor(t);
-        if (backgroundImage != null)
-            backgroundImage.color = EvaluateColor(t) * 0.5f;
+
+        // İPTAL EDİLDİ: Anlık set etme işleminde arka plan rengi değişimi kaldırıldı.
+        // if (backgroundImage != null)
+        //    backgroundImage.color = EvaluateColor(t) * 0.5f;
     }
 }

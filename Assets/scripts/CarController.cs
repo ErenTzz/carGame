@@ -47,11 +47,16 @@ public class CarController : MonoBehaviour
 
 
     private Rigidbody carRb;
-
     private CarLights carLights;
 
     // UI Butonuyla kontrol edilecek
     private bool isBrakeButtonPressed = false;
+
+    // YENİ EKLENDİ: Arabanın kontrol edilip edilemeyeceğini belirler
+    private bool isControllable = true;
+    // YENİ EKLENDİ: Oyun bittiğinde freni zorla kilitler
+    private bool forceBrake = false;
+
 
     // UI tarafından çağrılacak fonksiyonlar
     public void OnBrakeButtonDown()
@@ -79,6 +84,13 @@ public class CarController : MonoBehaviour
         SceneManager.LoadScene(currentScene.name);
     }
 
+    // YENİ EKLENDİ: Oyunu bitirmek için dışarıdan çağrılacak fonksiyon
+    public void DisableControlsAndBrake()
+    {
+        isControllable = false;
+        forceBrake = true;
+        moveInput = 0; // Hareketi anında kes
+    }
 
 
     void Start()
@@ -91,7 +103,18 @@ public class CarController : MonoBehaviour
 
     void Update()
     {
-        GetInputs();
+        // DEĞİŞTİRİLDİ: Sadece kontrol edilebiliyorsa input al
+        if (isControllable)
+        {
+            GetInputs();
+        }
+        else
+        {
+            // Kontrol edilemiyorsa inputları sıfırla
+            moveInput = 0;
+            steerInput = 0;
+        }
+
         AnimatedWheels();
         WheelEffects();
     }
@@ -105,16 +128,30 @@ public class CarController : MonoBehaviour
 
     public void MoveInput(float input)
     {
+        // DEĞİŞTİRİLDİ: Kontrol dışıysa input alma
+        if (!isControllable)
+        {
+            moveInput = 0;
+            return;
+        }
         moveInput = input;
     }
 
     public void SteerInput(float input)
     {
+        // DEĞİŞTİRİLDİ: Kontrol dışıysa input alma
+        if (!isControllable)
+        {
+            steerInput = 0;
+            return;
+        }
         steerInput = input;
     }
 
     void GetInputs()
     {
+        // DEĞİŞTİRİLDİ: Zaten isControllable ile korunduğu için
+        // ekstra kontrol gerekmiyor, sadece inputları al.
         if (control == ControlMode.Keyboard)
         {
             moveInput = Input.GetAxis("Vertical");
@@ -126,7 +163,7 @@ public class CarController : MonoBehaviour
     {
         foreach (var wheel in wheels)
         {
-            wheel.wheelCollider.motorTorque = -moveInput *600* maxAcceleration * Time.deltaTime;
+            wheel.wheelCollider.motorTorque = -moveInput * 600 * maxAcceleration * Time.deltaTime;
         }
     }
 
@@ -143,32 +180,6 @@ public class CarController : MonoBehaviour
         }
     }
 
-    //void Brake()
-    //{
-    //    if (Input.GetKey(KeyCode.Space))
-    //    {
-
-    //        foreach (var wheel in wheels)
-    //        {
-    //            wheel.wheelCollider.brakeTorque = 300 * brakeAcceleration * Time.deltaTime;
-    //        }
-
-    //        carLights.isBackLightOn = true;
-    //        carLights.OperateBackLights();
-    //    }
-    //    else
-    //    {
-
-    //        foreach (var wheel in wheels)
-    //        {
-    //            wheel.wheelCollider.brakeTorque = 0f;
-    //        }
-
-    //        carLights.isBackLightOn = false;
-    //        carLights.OperateBackLights();
-    //    }
-    //}
-
     void Brake()
     {
         bool isBraking = false;
@@ -184,13 +195,16 @@ public class CarController : MonoBehaviour
             isBraking = isBrakeButtonPressed; // UI tarafından ayarlanan değişken
         }
 
-        isBraking = Input.GetKey(KeyCode.Space) || isReversing; // Reverse butonuna basıldığında da true olacak
+        // DEĞİŞTİRİLDİ: Geri vites, fren butonu VEYA zorla fren (forceBrake) durumunu kontrol et
+        isBraking = Input.GetKey(KeyCode.Space) || isReversing || forceBrake;
 
         if (isBraking)
         {
             foreach (var wheel in wheels)
             {
-                wheel.wheelCollider.brakeTorque = 300 * brakeAcceleration * Time.deltaTime;
+                // DEĞİŞTİRİLDİ: Fren gücünü biraz artırdım ki araba zorla durdurulduğunda daha hızlı dursun.
+                // Time.deltaTime'ı buradan kaldırıp FixedUpdate'e taşıyabilirsin, ama şimdilik böyle kalsın.
+                wheel.wheelCollider.brakeTorque = 800 * brakeAcceleration * Time.deltaTime;
             }
 
             carLights.isBackLightOn = true;
@@ -221,57 +235,21 @@ public class CarController : MonoBehaviour
         }
     }
 
-    //void WheelEffects()
-    //{
-    //    foreach (var wheel in wheels)
-    //    {
-    //        if (Input.GetKey(KeyCode.Space) && wheel.axel == Axel.Rear && wheel.wheelCollider.isGrounded == true && carRb.linearVelocity.magnitude >= 10.0f)
-    //        {
-    //            wheel.wheelEffectObj.GetComponentInChildren<TrailRenderer>().emitting = true;
-    //            wheel.smokeParticle.Emit(1);
-    //        }
-    //        else
-    //        {
-    //            wheel.wheelEffectObj.GetComponentInChildren<TrailRenderer>().emitting = false;
-    //        }
-
-    //    }
-    //}
-
-    //void WheelEffects()
-    //{
-    //    foreach (var wheel in wheels)
-    //    {
-    //        WheelHit hit;
-    //        bool isGrounded = wheel.wheelCollider.GetGroundHit(out hit);
-
-    //        if (isGrounded)
-    //        {
-
-    //            // Yanal ve ileri kayma miktarını kontrol et
-    //            float slipAmount = Mathf.Abs(hit.forwardSlip) + Mathf.Abs(hit.sidewaysSlip);
-
-    //            // Eğer slip belirli eşiği geçerse drift izi çıkar
-    //            if (slipAmount > 0.6f) // bu eşiği ayarlayabilirsin (0.2 - 0.6 arası genelde iyi)
-    //            {
-    //                wheel.wheelEffectObj.GetComponentInChildren<TrailRenderer>().emitting = true;
-    //                wheel.smokeParticle.Emit(1);
-    //            }
-    //            else
-    //            {
-    //                wheel.wheelEffectObj.GetComponentInChildren<TrailRenderer>().emitting = false;
-    //            }
-    //        }
-    //        else
-    //        {
-    //            // Havadaysa iz çıkarma
-    //            wheel.wheelEffectObj.GetComponentInChildren<TrailRenderer>().emitting = false;
-    //        }
-    //    }
-    //}
-
     void WheelEffects()
     {
+        // DEĞİŞTİRİLDİ: Sadece kontrol edilebiliyorsa efektleri çalıştır
+        if (!isControllable)
+        {
+            // Eğer araba artık kontrol edilemiyorsa tüm izleri (TrailRenderer) kapat
+            foreach (var wheel in wheels)
+            {
+                var trail = wheel.wheelEffectObj.GetComponentInChildren<TrailRenderer>();
+                if (trail != null)
+                    trail.emitting = false;
+            }
+            return;
+        }
+
         foreach (var wheel in wheels)
         {
             bool isGrounded = wheel.wheelCollider.isGrounded;
@@ -313,5 +291,4 @@ public class CarController : MonoBehaviour
             }
         }
     }
-
 }
