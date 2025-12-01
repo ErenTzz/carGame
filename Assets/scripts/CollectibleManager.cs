@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System;
@@ -12,27 +12,27 @@ public class CollectibleManager : MonoBehaviour
         public int targetAmount = 10;
         [HideInInspector] public int currentAmount = 0;
 
-        [Header("UI Elemanlarý")]
-        public TMP_Text amountText; // "x / hedef" yazýsý
+        [Header("UI ElemanlarÄ±")]
+        public TMP_Text amountText; // "x / hedef" yazÄ±sÄ±
         public Image icon; // obje ikonu
 
         [Header("Ses Efektleri")]
-        public AudioClip completionSfx; // Her tür için farklý tamamlanma sesi (opsiyonel)
-        [HideInInspector] public bool completed; //  Bir kere çalmasý için
+        public AudioClip completionSfx; // Her tÃ¼r iÃ§in farklÄ± tamamlanma sesi (opsiyonel)
+        [HideInInspector] public bool completed; //  Bir kere Ã§almasÄ± iÃ§in
     }
 
     public CollectibleType[] collectibles;
     public TMP_Text totalText;
     public DynamicProgressBarDOTweenSlider mainProgressBar;
 
-    public event Action OnAllCollected;
+    // public event Action OnAllCollected; // REMOVED: Game ends on timer now
 
     private int totalCollectedCount = 0;
     private AudioSource audioSource;
 
     private void Awake()
     {
-        // Tek bir AudioSource tüm sesleri çalabilir
+        // Tek bir AudioSource tÃ¼m sesleri Ã§alabilir
         audioSource = GetComponent<AudioSource>();
         if (audioSource == null)
             audioSource = gameObject.AddComponent<AudioSource>();
@@ -53,27 +53,27 @@ public class CollectibleManager : MonoBehaviour
                 if (c.amountText != null)
                     c.amountText.text = $"{c.currentAmount} / {c.targetAmount}";
 
-                //  Toplam sayaç artýr
+                //  Toplam sayaÃ§ artÄ±r
                 totalCollectedCount++;
                 UpdateTotalText();
 
-                //  Eðer bu collectible hedefe ulaþtýysa ve daha önce tamamlanmadýysa
+                //  EÄŸer bu collectible hedefe ulaÅŸtÄ±ysa ve daha Ã¶nce tamamlanmadÄ±ysa
                 if (!c.completed && c.currentAmount >= c.targetAmount)
                 {
                     c.completed = true;
 
-                    // Sesi çal
+                    // Sesi Ã§al
                     if (c.completionSfx != null && audioSource != null)
                         audioSource.PlayOneShot(c.completionSfx);
                 }
 
-                // Ana progress bar'ý güncelle
+                // Ana progress bar'Ä± gÃ¼ncelle
                 if (mainProgressBar != null)
                     mainProgressBar.SetProgress(GetTotalCollected());
 
-                // Tüm hedefler tamamlandýysa olayý tetikle
-                if (AllGoalsReached())
-                    OnAllCollected?.Invoke();
+                // REMOVED: Immediate win check
+                // if (AllGoalsReached())
+                //    OnAllCollected?.Invoke();
 
                 break;
             }
@@ -99,12 +99,17 @@ public class CollectibleManager : MonoBehaviour
             totalText.text = $"Toplam: {totalCollectedCount}";
     }
 
-    private bool AllGoalsReached()
+    public bool AllGoalsReached()
     {
         foreach (var c in collectibles)
             if (c.currentAmount < c.targetAmount)
                 return false;
         return true;
+    }
+
+    public CollectibleType[] GetCollectibles()
+    {
+        return collectibles;
     }
 
     public int GetSuccessCount()
