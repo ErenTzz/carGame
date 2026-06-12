@@ -105,6 +105,11 @@ public class TimerManager : MonoBehaviour
         int totalCollected = collectibleManager != null ? collectibleManager.GetTotalCollected() : 0;
         int score = totalCollected * successCount;
 
+        if (CurrencyManager.Instance != null)
+        {
+            CurrencyManager.Instance.AddGold(score);
+        }
+
         if (didWin)
         {
             if (successPanel != null)
